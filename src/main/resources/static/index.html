@@ -1,0 +1,15 @@
+<html>
+<head>
+    <script src="https://unpkg.com/microblink/dist/microblink.min.js"></script>
+    <script>
+        Microblink.SDK.SetRecognizers(['MRTD']);
+        Microblink.SDK.SetEndpoint('http://localhost:8080');
+        Microblink.SDK.SetAuthorization('Bearer '+Base64.encode('3e11434b1b404b30bf9ce38bc3badaa2'+':'+'da4c6eee-3921-4d51-b46d-22d64c49293f'));
+    </script>
+    <microblink-ui-web tabs></microblink-ui-web>
+</head>
+<body>
+    index page
+</body>
+</html>
+
