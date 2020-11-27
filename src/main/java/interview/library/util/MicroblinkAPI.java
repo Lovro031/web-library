@@ -178,10 +178,9 @@ public class MicroblinkAPI {
 		return personIdInfo;
 	}
 
-	private static final int[] CHECK_DIGIT_WEIGHTS = {7,3,1};
-    private static final int ALPHABETICAL_OFFSET = 10;
-
 	private static boolean checkDigits(String string, char checkDigit) {
+		int[] weights = {7,3,1};
+		int alphabetical_offset = 10;
 		int sum = 0;
 		for(int i = 0; i < string.length(); i++) {
 			char digit = string.charAt(i);
@@ -191,10 +190,10 @@ public class MicroblinkAPI {
 			if(Character.isDigit(digit)) {
 				value = ((int) digit) - ((int) '0');
 			} else {
-				value = ((int) digit) - ((int) 'A') + ALPHABETICAL_OFFSET;
+				value = ((int) digit) - ((int) 'A') + alphabetical_offset;
 			}
 
-			sum += (value * CHECK_DIGIT_WEIGHTS[i % CHECK_DIGIT_WEIGHTS.length]);
+			sum += (value * weights[i % weights.length]);
 		}
 
 		return sum % 10 == (checkDigit - (int)'0') ? true : false;
